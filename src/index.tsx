@@ -8,7 +8,7 @@ import "./styles.css";
 const colorHash = new ColorHash();
 
 function App() {
-  const [values, setValues] = React.useState(["cioa"]);
+  const [values, setValues] = React.useState([]);
 
   return (
     <div className="App">
