@@ -5,26 +5,39 @@ import ColorHash from "color-hash-ts";
 
 import "./styles.css";
 
+// you can make adjustment here
 const colorHash = new ColorHash();
+
+function stringToHex(str: string): string {
+  return colorHash.hex(str);
+}
 
 function App() {
   const [values, setValues] = React.useState<string[]>([]);
 
   return (
     <div className="App">
-      <h1>color hash ts</h1>
+      <h1>Color Hash TS</h1>
+      <p>
+        <a href="https://www.npmjs.com/package/color-hash-ts">npm</a> -{" "}
+        <a href="https://github.com/zanza00/color-hash-ts-demo">Demo Source </a>
+        -{" "}
+        <a href="https://codesandbox.io/s/github/zanza00/color-hash-ts-demo">
+          Interactive Sandbox
+        </a>
+      </p>
       <h2>Generate a color based on the given string</h2>
       <input
         placeholder="Write something..."
-        value={values[values.length - 1]}
+        value={values[0]}
         onChange={e => {
-          setValues([...values, e.target.value]);
+          setValues([e.target.value, ...values]);
         }}
       />
       <ul id="history">
         {values.length !== 0 &&
           values.map((value, i) => {
-            const hex = colorHash.hex(value);
+            const hex = stringToHex(value);
             return (
               <li
                 key={`${i}=${value}`}
