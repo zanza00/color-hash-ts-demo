@@ -15,6 +15,7 @@ function App() {
       <h1>color hash ts</h1>
       <h2>Generate a color based on the given string</h2>
       <input
+        placeholder="Write something..."
         value={values[values.length - 1]}
         onChange={e => {
           setValues([...values, e.target.value]);
