@@ -8,7 +8,7 @@ import "./styles.css";
 const colorHash = new ColorHash();
 
 function App() {
-  const [values, setValues] = React.useState([]);
+  const [values, setValues] = React.useState<string[]>([]);
 
   return (
     <div className="App">
