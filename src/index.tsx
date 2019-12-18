@@ -5,7 +5,12 @@ import ColorHash from "color-hash-ts";
 
 import "./styles.css";
 
+// you can make adjustment here
 const colorHash = new ColorHash();
+
+function stringToHex(str: string): string {
+  return colorHash.hex(str);
+}
 
 function App() {
   const [values, setValues] = React.useState<string[]>([]);
@@ -14,6 +19,7 @@ function App() {
     <div className="App">
       <h1>color hash ts</h1>
       <h2>Generate a color based on the given string</h2>
+      <div />
       <input
         placeholder="Write something..."
         value={values[values.length - 1]}
@@ -24,7 +30,7 @@ function App() {
       <ul id="history">
         {values.length !== 0 &&
           values.map((value, i) => {
-            const hex = colorHash.hex(value);
+            const hex = stringToHex(value);
             return (
               <li
                 key={`${i}=${value}`}
